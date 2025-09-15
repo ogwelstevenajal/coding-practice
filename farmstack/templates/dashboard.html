@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard - FarmStack{% endblock %}
+{% block content %}
+<h1 class="title">Dashboard</h1>
+<div class="columns is-multiline">
+  <div class="column is-4">
+    <div class="box">
+      <h2 class="subtitle">Sales (Last 30 Days)</h2>
+      <canvas id="salesChart" height="180"></canvas>
+    </div>
+  </div>
+  <div class="column is-4">
+    <div class="box">
+      <h2 class="subtitle">Crop Yields</h2>
+      <canvas id="yieldChart" height="180"></canvas>
+    </div>
+  </div>
+  <div class="column is-4">
+    <div class="box">
+      <h2 class="subtitle">Financial Trend</h2>
+      <canvas id="financeChart" height="180"></canvas>
+    </div>
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const salesCtx = document.getElementById('salesChart');
+  new Chart(salesCtx, {type:'line', data:{labels:['W1','W2','W3','W4'], datasets:[{label:'Sales', data:[200,350,180,420], borderColor:'#22c55e'}]}});
+  const yieldCtx = document.getElementById('yieldChart');
+  new Chart(yieldCtx, {type:'bar', data:{labels:['Maize','Beans','Wheat'], datasets:[{label:'Kg', data:[120,80,150], backgroundColor:'#0ea5e9'}]}});
+  const finCtx = document.getElementById('financeChart');
+  new Chart(finCtx, {type:'line', data:{labels:['M1','M2','M3','M4'], datasets:[{label:'Profit', data:[100,50,200,120], borderColor:'#f59e0b'}]}});
+});
+</script>
+{% endblock %}
+
