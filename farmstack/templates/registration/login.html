@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Login - FarmStack{% endblock %}
+{% block content %}
+<div class="columns is-centered">
+  <div class="column is-4">
+    <div class="box">
+      <h1 class="title">Login</h1>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="button is-primary" type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
